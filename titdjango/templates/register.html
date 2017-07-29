@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+  <!-- 页面设计者 ：王智 | 页面制作者：王智-->
+    <meta charset="utf-8" />
+    <title>注册</title>
+    <style>
+       *{margin: 0;padding: 0;}
+       body{font-size: 12px;font-family: "微软雅黑";color: #666;background: url(./img/register.jpg) no-repeat;background-size:cover;}
+       #register{width: 500px;background: rgba(204,204,204,0.5);margin:180px auto;padding:20px;}
+       #register p{text-align: center;padding: 10px;}
+       #register p span{display: inline-block;width: 50px;height: 30px;line-height: 30px;text-align: center;color: #fff;}
+       #register p select{font-size:12px;outline: none;width: 160px;height: 30px;padding-left: 10px; border: 1px solid transparent;}
+       #register p input{font-size:12px;outline: none;width: 150px;height: 30px;padding-left: 10px; border: 1px solid transparent;}
+       #register p input.on{border: 1px solid skyblue;box-shadow: 0px 0px 10px skyblue;}
+       #register p input.submit{width:162px;text-align: center;margin-left:48px;border: none;color: #fff;background: skyblue;cursor: pointer;font-size: 12px;}
+       #register p input.submit:hover{background: deepskyblue;}
+       #register p.login a{color: #666;font-size: 12px;margin-left:44px;}
+       #register p.login a:hover{color: red;}
+    </style>
+    {% load staticfiles %}
+
+</head>
+<body>
+
+  {% if state == 'success' %}
+  <div>
+    <h2>注册成功</h2>
+  </div>
+  {% elif state == 'phone' %}
+  <div>
+    <h2>手机号码重复</h2>
+  </div>
+  {% elif state == 'email' %}
+  <div>
+      <h2>电子邮件重复</h2>
+  </div>
+  {% elif state == 'empty' %}
+  <div>
+      <h2>手机号码，电子邮件不能全部为空</h2>
+  </div>
+  {% endif %}
+
+  <div id="register">
+      <form action="#" method="post">
+          {% csrf_token %}
+          <select name="level">
+              <option>学生</option>
+              <option>老师</option>
+          </select>
+          <p>
+              <span>手机号:</span><input type="text" name="phone" placeholder="请输入手机号"/>
+          </p>
+          <p>
+              <span>邮箱:</span><input type="text" name="email" placeholder="请输入邮箱"/>
+          </p>
+          <p>
+              <input type="submit" name="" value="注册" class="submit"/>
+          </p>
+      </form>
+  </div>
+		
+  <script type="text/javascript" src="./js/jquery-3.1.1.min.js" ></script>
+  <script>
+			
+   (function(){
+     var $input = $("#register p input");
+     var index = 0;
+     $input.focusin(function(){
+       $input.removeClass("on");
+       $(this).addClass("on").siblings().removeClass("on");
+     });
+     $input.focusout(function(){
+       $input.removeClass("on");
+     });
+   })();
+   
+  </script>
+</body>
+</html>

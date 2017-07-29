@@ -1,0 +1,1 @@
+scrapy crawl jwc --nolog
