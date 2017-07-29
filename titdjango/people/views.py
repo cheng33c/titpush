@@ -11,9 +11,9 @@ from email.utils import parseaddr, formataddr
 
 # Create your views here.
 
-from_addr = 'terroristmechine@163.com'
-password = 'nice88200438'
-smtp_server = 'smtp.163.com'
+from_addr = 'email'
+password = 'password'
+smtp_server = 'email smtp'
 
 MONGO_URL = 'localhost'
 MONGO_DB = 'titjwc'

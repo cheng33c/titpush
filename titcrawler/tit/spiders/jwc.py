@@ -19,7 +19,6 @@ from email.utils import parseaddr, formataddr
 client = pymongo.MongoClient(MONGO_URL)
 db = client[MONGO_DB]
 
-
 from_addr = 'terroristmechine@163.com'
 password = 'nice88200438'
 smtp_server = 'smtp.163.com'
